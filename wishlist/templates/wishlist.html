@@ -1,23 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<b>{{nama}}</b>
+<h4>Nama: Nisrina Zakiyah Aeni </h4>
+<h4>NPM: 2106635013</h4>
+
+<style>
+    table,
+    th,
+    td {
+      padding: 7px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
 
 <table>
-    <tr>
+    <tr style="background-color: darkgoldenrod;">
     <th>Nama Barang</th>
     <th>Harga Barang</th>
     <th>Deskripsi</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
     {% for barang in list_barang %}
-    <tr>
+    <tr style="background-color: rgb(230, 223, 206);">
         <th>{{barang.nama_barang}}</th>
         <th>{{barang.harga_barang}}</th>
         <th>{{barang.deskripsi}}</th>
     </tr>
 {% endfor %}
 </table>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+
 
 {% endblock content %}
