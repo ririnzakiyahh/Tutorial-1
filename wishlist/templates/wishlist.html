@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h4>Nama: Nisrina Zakiyah Aeni </h4>
-<h4>NPM: 2106635013</h4>
-
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wishlist App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
 <style>
     table,
     th,
@@ -12,26 +15,61 @@
       border: 1px solid black;
       border-collapse: collapse;
     }
+    .bg-custom{
+      background-color: rgb(130, 179, 229);
+    }
+
+    h6{
+      padding: 10px;
+    }
+
+    table.center{
+      margin-left:auto;
+      margin-right:auto;
+    }
   </style>
 
-<table>
-    <tr style="background-color: darkgoldenrod;">
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-    {% for barang in list_barang %}
-    <tr style="background-color: rgb(230, 223, 206);">
-        <th>{{barang.nama_barang}}</th>
-        <th>{{barang.harga_barang}}</th>
-        <th>{{barang.deskripsi}}</th>
-    </tr>
-{% endfor %}
-</table>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-custom">
+    <a class="navbar-brand" href="#">WISHLIST {{user.username}} 👯💰
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'wishlist:logout' %}" title"">Log out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+  <div class="container" style = "font-family:Poppins;font-size:12px;font-style:bold;">
+    <h6><center>Nisrina Zakiyah Aeni</h6></center>
+    <table class="center">
+      <tr style="background-color: rgb(41, 103, 166); color:aliceblue">
+      <th>Nama Barang</th>
+      <th>Harga Barang</th>
+      <th>Deskripsi</th>
+      </tr>
+      {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+      {% for barang in list_barang %}
+      <tr style="background-color: rgb(213, 236, 250);">
+          <th>{{barang.nama_barang}}</th>
+          <th>{{barang.harga_barang}}</th>
+          <th>{{barang.deskripsi}}</th>
+      </tr>
+  {% endfor %}
+  </table>
+  <h6><center>Sesi terakhir login: {{ last_login }}</h6></center>
+  <!-- <button><a href="{% url 'wishlist:logout' %}">Logout</a></button> -->
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
 
 
 {% endblock content %}
