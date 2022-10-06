@@ -22,6 +22,15 @@ def show_wishlist(request):
     'last_login': request.COOKIES['last_login'],
 }
     return render(request, "wishlist.html", context)
+
+def add_wishlist_ajax(request):
+    if request.method == "POST":
+        namaBarang = request.POST.get('namaBarang')
+        hargaBarang = request.POST.get('hargaBarang')
+        deskripsiBarang = request.POST.get('deskripsiBarang')
+        BarangWishlist.objects.create(namaBarang=namaBarang, hargaBarang=hargaBarang, deskripsiBarang=deskripsiBarang)
+        
+    return render(request, "wishlist_ajax.html", context)
     
 def show_xml(request):
     data = BarangWishlist.objects.all()
