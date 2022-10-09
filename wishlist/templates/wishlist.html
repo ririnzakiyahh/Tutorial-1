@@ -48,7 +48,7 @@
 
   <div class="container" style = "font-family:Poppins;font-size:12px;font-style:bold;">
     <h6><center>Nisrina Zakiyah Aeni</h6></center>
-    <table class="center">
+    <table>
       <tr style="background-color: rgb(41, 103, 166); color:aliceblue">
       <th>Nama Barang</th>
       <th>Harga Barang</th>
@@ -61,7 +61,7 @@
           <th>{{barang.harga_barang}}</th>
           <th>{{barang.deskripsi}}</th>
       </tr>
-  {% endfor %}
+      {% endfor %}
   </table>
   <h6><center>Sesi terakhir login: {{ last_login }}</h6></center>
   <!-- <button><a href="{% url 'wishlist:logout' %}">Logout</a></button> -->
